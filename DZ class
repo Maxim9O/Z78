@@ -1,0 +1,84 @@
+№ 1
+Реализуйте класс MoneyBox, для работы с виртуальной копилкой.
+Каждая копилка имеет ограниченную вместимость,
+которая выражается целым числом – количеством монет, которые можно положить в копилку.
+Класс должен поддерживать информацию о количестве монет в копилке,
+предоставлять возможность добавлять монеты в копилку и узнавать,
+можно ли добавить в копилку ещё какое-то количество монет, не превышая ее вместимость.
+Класс должен иметь следующий вид:
+
+class MoneyBox:
+    def__init__(self, capacity) :
+    #конструктор с аргументом- вместимость копилки
+    def can_add(self,v)
+    #True, если можно добавить v монет, False иначе
+    def add(self,v)
+    #положить v монет в копилку
+
+Примечание:
+При создании копилки, число монет в ней равно 0.
+Гарантируется, что метод add(self, v) будет вызываться только если can_add(self, v) – True.
+
+class MoneyBox(object):
+
+    def __init__(self, capacity):
+        self.capacity = capacity
+        print(f"Вместимость копилки равна {self.capacity}")
+
+    def add(self, v):
+        MONEY = 0
+        if v <= self.capacity:
+            print(f"Положить {v} монет в копилку")
+        if v <= self.capacity:
+            MONEY += v
+            print(f"Можно добавить {self.capacity - v} монет")
+        else:
+            print(f"В копилке нет места")
+
+
+wallet = MoneyBox(10)
+wallet.add(9)
+
+№2
+Создать базовый класс «сотрудник» и производные классы «стажер», «работник»,
+«начальник отдела», «директор».Выведите на экран целое число – уровень допуска,
+вещественное число – зарплату и название должности.
+
+class Sotrudnik():
+    def __init__(self, level, cash, status):
+        self.level = level
+        self.cash = cash
+        self.status = status
+
+
+class New_worker(Sotrudnik):
+    def info(self):
+        print(f"Доступ: 1, зарплата: 699.9, должность: Стажер")
+
+
+class Worker(Sotrudnik):
+    def info(self):
+        print(f"Доступ: 3, зарплата: 1100, должность: Работник")
+
+
+class Head(Sotrudnik):
+    def info(self):
+        print(f"Доступ: 8, зарплата: 1900, должность: Начальник отдела")
+
+
+class Director(Sotrudnik):
+    def info(self):
+        print(f"Доступ: 10, зарплата: 4000, должность: Директор")
+
+
+Tom = New_worker(1, 699.99, "Стажер")
+Tom.info()
+
+Paul = Worker(1, 1100, "Стажер")
+Paul.info()
+
+Mike = Head(4, 1900, "Работник")
+Mike.info()
+
+Ted = Director(10, 4000, "Директор")
+Ted.info()
